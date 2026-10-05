@@ -70,7 +70,7 @@ def get_weather(latitude, longitude):
             "temperature_2m,"
             "relative_humidity_2m,"
             "precipitation,"
-            "surface_pressure,"
+            "pressure_msl,"
             "wind_speed_10m,"
             "soil_moisture_0_to_7cm"
         ),
@@ -102,7 +102,7 @@ def get_date_data(weather, selected_date):
     temperature = hourly.get("temperature_2m", [])
     humidity = hourly.get("relative_humidity_2m", [])
     rainfall = hourly.get("precipitation", [])
-    pressure = hourly.get("surface_pressure", [])
+    pressures = hourly.get("pressure_msl", [])
     wind = hourly.get("wind_speed_10m", [])
     soil = hourly.get("soil_moisture_0_to_7cm", [])
 
@@ -126,7 +126,7 @@ def get_date_data(weather, selected_date):
     temp_values = valid(temperature)
     humidity_values = valid(humidity)
     rain_values = valid(rainfall)
-    pressure_values = valid(pressure)
+    pressure_values = valid(pressures)
     wind_values = valid(wind)
     soil_values = valid(soil)
 
