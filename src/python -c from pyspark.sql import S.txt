@@ -1,0 +1,63 @@
+python -c "from pyspark.sql import SparkSession; from pyspark.sql.functions import col,avg,max,min; spark=SparkSession.builder.master('local[*]').appName('FloodFeatureCheck').getOrCreate(); df=spark.read.parquet('data/processed/phase1_labeled'); print('=== Flood vs Non-Flood Feature Summary ==='); df.groupBy('flood_event').agg(avg('rainfall_24h').alias('avg_rainfall_24h'),max('rainfall_24h').alias('max_rainfall_24h'),avg('rainfall_72h').alias('avg_rainfall_72h'),max('rainfall_72h').alias('max_rainfall_72h'),avg('rainfall_7d').alias('avg_rainfall_7d'),avg('soil_moisture_avg_24h').alias('avg_soil_moisture')).show(truncate=False); print('=== Flood Feature Summary By Location ==='); df.filter(col('flood_event')==1).groupBy('location').agg(avg('rainfall_24h').alias('avg_rainfall_24h'),max('rainfall_24h').alias('max_rainfall_24h'),avg('rainfall_72h').alias('avg_rainfall_72h'),max('rainfall_72h').alias('max_rainfall_72h'),avg('rainfall_7d').alias('avg_rainfall_7d')).show(truncate=False); spark.stop()"
+
+Why this check matters
+We're asking:
+Do our documented flood labels actually line up with the environmental features we're feeding the model?
+
+If flood and non-flood records have very similar rainfall distributions, the Random Forest will have a difficult job.
+If flood periods show substantially higher accumulated rainfall, that's useful evidence that our feature engineering is capturing something meaningful.
+
+What the numbers tell us
+Flood-labelled records have considerably higher average accumulated rainfall:
+Feature	Flood	Non-flood
+Avg 24h rainfall	11.01 mm	3.35 mm
+Avg 72h rainfall	33.12 mm	10.05 mm
+Avg 7-day rainfall	60.84 mm	23.54 mm
+Avg soil moisture	0.442	0.350
+
+
+So our rainfall accumulation and soil-moisture features are behaving sensibly.
+But notice this:
+Max 24h rainfall:
+Flood       108.1 mm
+Non-flood   119.8 mm
+
+That means maximum rainfall alone does not distinguish flood from non-flood. A very intense rainfall episode can occur without being labelled as a flood, which is completely plausible.
+Location differences are interesting too
+The flood-labelled averages are very different:
+Senapati
+24h: 55.48 mm
+72h: 181.02 mm
+7d:  251.39 mm
+
+Bishnupur
+24h: 33.06 mm
+72h: 117.71 mm
+7d:  162.46 mm
+
+Imphal
+24h:  9.30 mm
+72h: 26.81 mm
+7d:  53.17 mm
+
+Thoubal
+24h:  9.71 mm
+72h: 33.64 mm
+7d: 57.47 mm
+
+That is actually a good argument for keeping location as part of the eventual model architecture rather than treating Manipur as one homogeneous weather region.
+But there's a big caveat
+Our labels represent documented event windows, not hourly measurements saying:
+"At 14:00 this location was definitely flooded."
+
+For example, every hourly record inside an event window gets flood_event = 1.
+So:
+documented flood event
+        ↓
+event date range
+        ↓
+hourly records
+        ↓
+flood_event = 1
+
+This explains why the model shouldn't be judged as if we have 1,992 independent ground-truth flood observations.

@@ -1,0 +1,5 @@
+event_id,start_date,end_date,location,hazard_type,severity,source
+F001,2022-05-01,2022-06-30,Imphal,Flood,Low,Greater Imphal Risk Informed Master Plan
+F002,2024-07-01,2024-07-03,Imphal,Flood,High,MHA Flood Situation Report
+F003,2025-05-28,2025-06-01,Imphal,Flood,High,MHA Flood Situation Report
+F004,2025-09-15,2025-09-19,Imphal,Flood,High,MHA Flood Situation Report

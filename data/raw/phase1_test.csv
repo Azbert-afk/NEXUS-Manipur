@@ -1,0 +1,6 @@
+date,rainfall_24h,temperature,humidity,soil_moisture,slope,elevation,population_exposure,infrastructure_vulnerability,hazard_type,risk_level
+2026-01-01,12.5,18.2,72,35.4,8.2,790,1200,25,None,Low
+2026-01-02,48.7,19.1,81,52.6,7.5,785,1800,40,Flood,Moderate
+2026-01-03,92.3,20.0,88,71.2,6.8,780,2500,65,Flood,High
+2026-01-04,8.2,17.5,68,30.1,25.4,1250,600,35,None,Low
+2026-01-05,76.4,18.7,85,68.9,31.2,1300,900,70,Landslide,High

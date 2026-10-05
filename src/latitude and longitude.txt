@@ -1,0 +1,54 @@
+C:\Users\Albert\NEXUS-Manipur>python src\data_collection.py
+==========================================
+NEXUS-Manipur Phase 1
+Multi-Location Weather Collection
+==========================================
+
+Period: 2020-01-01 to 2025-12-31
+Locations: 6
+
+------------------------------------------
+Collecting: Imphal
+Latitude:  24.817
+Longitude: 93.9368
+------------------------------------------
+Records collected: 52608
+------------------------------------------
+Collecting: Thoubal
+Latitude:  24.6388
+Longitude: 94.01
+------------------------------------------
+Records collected: 52608
+------------------------------------------
+Collecting: Bishnupur
+Latitude:  24.6285
+Longitude: 93.769
+------------------------------------------
+Records collected: 52608
+------------------------------------------
+Collecting: Senapati
+Latitude:  25.267
+Longitude: 94.027
+------------------------------------------
+Records collected: 52608
+------------------------------------------
+Collecting: Kakching
+Latitude:  24.498
+Longitude: 94.008
+------------------------------------------
+Records collected: 52608
+------------------------------------------
+Collecting: Churachandpur
+Latitude:  24.3333
+Longitude: 93.6833
+------------------------------------------
+Records collected: 52608
+
+Saving combined dataset...
+
+==========================================
+Data collection completed.
+==========================================
+Locations collected: 6
+Total records: 315648
+Saved to: data/raw/manipur_weather.csv

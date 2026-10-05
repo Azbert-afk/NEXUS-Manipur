@@ -1,0 +1,15 @@
+event_id,start_date,end_date,location,hazard_type,severity,source
+F001,2022-05-01,2022-06-30,Imphal,Flood,Low,Greater Imphal Risk Informed Master Plan
+F002,2024-07-01,2024-07-03,Imphal,Flood,High,MHA Flood Situation Report
+F003,2025-05-28,2025-06-01,Imphal,Flood,High,MHA Flood Situation Report
+F004,2025-09-15,2025-09-19,Imphal,Flood,High,MHA Flood Situation Report
+F005,2024-07-02,2024-07-03,Bishnupur,Flood,High,MHA Flood Situation Report
+F006,2024-07-02,2024-07-03,Senapati,Flood,High,MHA Flood Situation Report
+F007,2025-09-15,2025-09-19,Thoubal,Flood,High,MHA Flood Situation Report
+F008,2025-05-28,2025-06-02,Senapati,Flood,High,MHA Flood Situation Report
+F009,2025-05-28,2025-06-01,Thoubal,Flood,High,Thoubal District advisory + flood reporting
+F010,2025-05-28,2025-06-01,Kakching,Flood,High,Flood reporting during May 2025 event
+F011,2024-05-29,2024-06-03,Thoubal,Flood,High,Thoubal District Administration + NRSC flood mapping
+F012,2024-08-20,2024-08-26,Kakching,Flood,High,Flood reporting + district flood assessment
+F013,2025-05-28,2025-06-01,Bishnupur,Flood,High,MHA situation report + Bishnupur flood relief reporting
+F014,2025-07-08,2025-07-09,Churachandpur,Flood,High,E-Pao Chronicle News Service, 9 July 2025

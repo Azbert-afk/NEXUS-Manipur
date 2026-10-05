@@ -1,0 +1,13 @@
+Open-Meteo
+    ↓
+52,608 hourly records
+    ↓
+PySpark feature engineering
+    ↓
+Documented flood events
+    ↓
+1,776 labelled flood records
+    ↓
+Time-based train/test split
+    ↓
+Random Forest
